@@ -1,0 +1,95 @@
+.signup__container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #EBF4FE;
+    height: 100vh;
+}
+.signup__image{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.signup__form{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+.signin{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+.imageLogo {
+    height: 100px;
+    width: 60%;
+}
+.myImage{
+    height: 400px;
+    /* width: 100%; */
+}
+.signin__header{
+    margin-left: 0px;
+    text-align: left;
+}
+.backgroundcolor {
+    background-color: white;
+}
+.with{
+    width: 43%;
+}
+.recaptcha{
+    margin-left: 10px;
+    width: 45%;
+}
+.myButton{
+    background-color: #6DB2F8;
+}
+.testmonial{
+    margin-left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    margin-bottom: 30px;
+}
+.testmoni__image{
+    width: 30vw;
+    height: 250px;
+}
+.testmoni__image img{
+    width: 30vw;
+    height: 250px;
+}
+.testmoni__description{
+    width: 40vw;
+    margin-right: 100px;
+}
+@media only screen and ( max-width:968px){
+ .testmonial{
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.testmoni__image{
+    width: 100%;
+    height: 250px;
+    margin-bottom: 7px;
+}
+.testmoni__image img{
+    width: 100%;
+    height: 250px;
+}
+.testmoni__description{
+    width: 100%;
+    margin-right: 100px;
+}
+}

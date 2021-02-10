@@ -1,0 +1,14 @@
+.fake{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    text-align: center;
+   padding-right: 20px;
+}
+.fake .button{
+    margin-right: 20px;
+}
+.fake a {
+    margin-left: 20px;
+}
