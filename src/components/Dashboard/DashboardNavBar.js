@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DashboardNavBar() {
   const classes = useStyles();
-  const [auth, setAuth] = React.useState(true);
+  const [auth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
