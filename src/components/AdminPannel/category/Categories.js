@@ -101,14 +101,10 @@ const handleSubCategoryProduct =() => {
 
 const handleSubCategory = (id) => {
     subCategoriesData.filter(data => {
-       const subCat = data.categoryId===id
-       if(subCat) {
+       if(data.categoryId===id) {
            setCategory(false)
            setSubCategory([data])
-        console.log([data])
-       } else{
-         (<h3>not result found</h3>)
-       }
+       } 
     })
 }
 
