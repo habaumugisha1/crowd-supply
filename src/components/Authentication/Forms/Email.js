@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Container, TextField } from "@material-ui/core/";
 
 function Email({formData, setFormData, navigation}) {
-    const {email, country,city,zipCode, phone, addressLine1, addressLine2} = formData
+    const { country,city,zipCode, addressLine1, addressLine2} = formData
     console.log(navigation)
     return (
         <div>

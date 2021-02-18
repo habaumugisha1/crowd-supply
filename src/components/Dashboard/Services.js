@@ -2,7 +2,6 @@ import React from 'react'
 import '../../css/DashboardPannel.css'
 import DescriptionIcon from '@material-ui/icons/Description';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
-import ViewHeadlineIcon from '@material-ui/icons/ViewHeadline';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import DataUsageIcon from '@material-ui/icons/DataUsage';
 function Services() {

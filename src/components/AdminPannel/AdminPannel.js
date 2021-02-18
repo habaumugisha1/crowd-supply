@@ -4,15 +4,11 @@ import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
-import {CardMedia} from '@material-ui/core';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -31,7 +27,6 @@ import Users from './Users';
 import Supply from './Supply';
 import ProductCategories from './ProductCategories';
 
-const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -107,13 +102,9 @@ function AdminPannel(props) {
   const [dashboard, setDashboard] = useState(false)
   const [deseases, setDeseases] = useState(false)
   const [supply, setSupply] = useState(false)
-  const [open, setOpen] = useState(false);
   const [productCategory, setProductCategory] = useState(false);
 
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
 const productCat = () => {
   setProductCategory(true)
   setDashboard(false)
@@ -121,9 +112,6 @@ const productCat = () => {
     setDeseases(false)
     setSupply(false)
 }
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   const handleDashboard = ()=>{
     setDashboard(true)

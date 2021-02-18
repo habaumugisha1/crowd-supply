@@ -1,6 +1,5 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
-import { authentication } from './utils'
 
 function ProtectedRouter(props) {
     const auth=props.isAuth

@@ -1,10 +1,8 @@
 import React from 'react'
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import { CardMedia, Divider, Card, CardActions,CardContent, Button} from '@material-ui/core';
-import Beds  from "../../../src/images/beds.jpeg";
+import { Divider, Card, CardActions,CardContent} from '@material-ui/core';
 import NavBar from "./DashboardNavBar";
 import {Link} from "react-router-dom";
 import { productData } from './ProductDammyData'
@@ -60,7 +58,6 @@ function ProductDetail(props) {
     let singleProduct = productData.find(product =>product.id=productId)
   console.log( singleProduct)
     const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
 
     return (
         <div>

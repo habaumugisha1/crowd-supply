@@ -3,7 +3,6 @@ import { Button, Link } from '@material-ui/core';
 import '../../css/DashboardPannel.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import Crowd4 from '../../../src/images/crowd4.jpg'
 
 import {Instagram, LinkedIn, YouTube, Twitter, Facebook } from '@material-ui/icons';
@@ -15,14 +14,7 @@ import Viebeglogo from './../../images/viebeg-logo.jpg';
 
 function DashboardPannel() {
   const [search, setSearch] = useState("")
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    cssEase:"linear"
-  };
+  
     return (
         <div>
         <DashboardNavBar />

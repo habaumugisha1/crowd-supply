@@ -1,9 +1,5 @@
 import React from 'react'
-import Laboratory from "../../../src/images/microscope.png";
-import Beds from '../../../src/images/beds.jpeg'
-import Crowd4 from '../../../src/images/crowd4.jpg'
 import '../../css/DashboardPannel.css'
-import { Redirect } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 
 function Products({products,search}) {

@@ -7,7 +7,6 @@ import Instrument from '../../../src/images/instrument.png'
 import {Instagram, LinkedIn, YouTube, Twitter, Facebook } from '@material-ui/icons';
 import DashboardNavBar from './DashboardNavBar'
 import Subcategoryproducts from "./Subcategoryproducts";
-import Services from "./Services";
 import { productData } from './ProductDammyData'
 import Viebeglogo from './../../images/viebeg-logo.jpg'; 
 

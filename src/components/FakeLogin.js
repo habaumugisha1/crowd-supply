@@ -1,6 +1,5 @@
 import { Button, Link } from '@material-ui/core';
 import React from 'react'
-import { authentication } from "./utils";
 import "./FakeLogin.css";
 function FakeLogin({login, logout}) {
     

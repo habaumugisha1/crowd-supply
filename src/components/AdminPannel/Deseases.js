@@ -10,31 +10,6 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import { Button } from '@material-ui/core';
 
-const columns = [
-  { id: 'name', label: 'DATE', minWidth: 170 },
-  { id: 'code', label: 'REQUEST', minWidth: 100 },
-  {
-    id: 'population',
-    label: 'PDF',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'size',
-    label: 'EMAIL',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'density',
-    label: 'ACTION',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toFixed(2),
-  },
-];
 
 function createData(name, code, population, size) {
   const density = population / size;
