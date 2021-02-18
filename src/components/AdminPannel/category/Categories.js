@@ -106,6 +106,8 @@ const handleSubCategory = (id) => {
            setCategory(false)
            setSubCategory([data])
         console.log([data])
+       } else{
+         (<h3>not result found</h3>)
        }
     })
 }
