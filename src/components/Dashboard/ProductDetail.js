@@ -1,8 +1,10 @@
 import React from 'react'
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import { Divider, Card, CardActions,CardContent} from '@material-ui/core';
+import { CardMedia, Divider, Card, CardActions,CardContent, Button} from '@material-ui/core';
+import Beds  from "../../../src/images/beds.jpeg";
 import NavBar from "./DashboardNavBar";
 import {Link} from "react-router-dom";
 import { productData } from './ProductDammyData'
@@ -58,11 +60,12 @@ function ProductDetail(props) {
     let singleProduct = productData.find(product =>product.id=productId)
   console.log( singleProduct)
     const classes = useStyles();
+  
 
     return (
         <div>
-        <NavBar />
-        <Divider />
+        {/* <NavBar />
+        <Divider /> */}
         <Container maxWidth="md" className={classes.container}>
         <Card className={classes.root} variant="outlined">
       <CardContent>
@@ -85,7 +88,7 @@ function ProductDetail(props) {
       <CardContent>
         <img src={Viebeglogo} alt="Viebeg" className={classes.logo}/>
         
-               <ul className="list-group list-group-flush bg-gray py-2">
+               <ul className="list-group list-group-flush bg-gray">
                     <li className="list-group-item bg-gray">
                         <div className="row">
                         <span className="col">Funding level</span><span className="col-auto crowd-text-bolder">{singleProduct.fundinglevel}</span>

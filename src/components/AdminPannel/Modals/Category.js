@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {Modal, TextField, Button, TextareaAutosize, Typography} from '@material-ui/core';
 import ImageIcon from '@material-ui/icons/Image';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -72,13 +73,60 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function AddProduct({data, open, close}) {
+export default function Category({data, open, close}) {
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
-  const [disease, setDisease] = useState({name:'', image:'', header:'', description:'', testmoimage:'', testmonial:''})
+  const [disease, setDisease] = useState({name:'',investment:'', image:'', header:'', description:'', testmoimage:'', testmonial:''})
   const [error, setError] = useState("")
+  const [section, setSection] = useState('select section');
  
 
+
+  const sections = [
+  {
+    value: 'span1',
+    label: 'span1',
+  },
+  {
+    value: 'span2',
+    label: 'span2',
+  },
+  {
+    value: 'span3',
+    label: 'span3',
+  },
+  {
+    value: 'span4',
+    label: 'span4',
+  },
+  {
+    value: 'img1',
+    label: 'img1',
+  },
+  {
+    value: 'img2',
+    label: 'img2',
+  },
+  {
+    value: 'img3',
+    label: 'img3',
+  },
+  {
+    value: 'img4',
+    label: 'img4',
+  },
+  {
+    value: 'img5',
+    label: 'img5',
+  },
+  {
+    value: 'img6',
+    label: 'img6',
+  },
+];
+const handleSection = (event) => {
+  setSection(event.target.value)
+}
  const uploadDisImage = async e =>{
     const file = e.target.files
     const data = new FormData()
@@ -115,6 +163,8 @@ export default function AddProduct({data, open, close}) {
     e.preventDefault();
     setDisease({
         name :"",
+        investment:'',
+        section:"",
         image :"",
         header:"",
         description:"",
@@ -127,7 +177,9 @@ export default function AddProduct({data, open, close}) {
     if(disease.name !== "" && disease.image !=="" && disease.description !== "" &&  disease.testmoimage!=="" && disease.testmonial !== ""){
       setDisease({
         name:disease.name,
+        investment:disease.investment,
         image:disease.image,
+        section:disease.section,
         description:disease.description,
         testmoimage:disease.testmoimage,
         testmonial:disease.testmonial
@@ -145,13 +197,13 @@ export default function AddProduct({data, open, close}) {
   const body = (
     <div style={modalStyle} className={classes.paper}>
     <div className={classes.headers}>
-      <h2 id="simple-modal-title" style={{marginLeft:'17px'}}>New Disease</h2>
+      <h2 id="simple-modal-title" style={{marginLeft:'17px'}}>New Category</h2>
       <h1 className={classes.close} onClick={close}>+</h1>
     </div>
       {error? (<h4 className="text-center text-danger">{error}</h4>): ("")}
       <form className={classes.root} noValidate autoComplete="off" onSubmit={submitHandler}>
       <TextField  
-      label="Name of disease" 
+      label="Product Name" 
       variant="outlined" 
       fullWidth onChange={e=> setDisease({...disease, name:e.target.value})} value={disease.name}
       inputProps={{
@@ -160,6 +212,38 @@ export default function AddProduct({data, open, close}) {
           }
         }}
       />
+      <div style={{display:'flex',justifyContent:'space-between'}}>
+      <TextField
+      id="standard-start-adornment"  
+      label="Interest rate" 
+      type='number'
+      variant="outlined" 
+      style={{width:'47%'}}
+    //   fullWidth 
+      onChange={e=> setDisease({...disease, investment:e.target.value})} value={disease.investment}
+      inputProps={{
+          style: {
+          padding: 12,
+          },
+        startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
+        }}
+      />
+      <TextField 
+      label="Duration" 
+      type='number'
+      variant="outlined"
+      style={{width:'47%', marginRight:'0px'}} 
+    //   fullWidth 
+      onChange={e=> setDisease({...disease, investment:e.target.value})} value={disease.investment}
+      inputProps={{
+          style: {
+          padding: 12,
+          },
+        startAdornment: <InputAdornment position="start">Kg</InputAdornment>,
+        }}
+      />
+      
+      </div>
       <TextField 
       className={classes.files}
         type='file'
@@ -167,10 +251,13 @@ export default function AddProduct({data, open, close}) {
         onChange={uploadDisImage} 
         // value={disease.image}
         />
+        <div style={{display:'flex',justifyContent:'space-between'}}>
       <TextField 
       label="Header line" 
-      variant="outlined" 
-      fullWidth onChange={e=> setDisease({...disease, header:e.target.value})} value={disease.header}
+      variant="outlined"
+      style={{width:'47%'}}  
+    //   fullWidth 
+      onChange={e=> setDisease({...disease, header:e.target.value})} value={disease.header}
       inputProps={{
           style: {
           padding: 12,
@@ -178,7 +265,25 @@ export default function AddProduct({data, open, close}) {
         }}
       />
       <TextField 
-        label="Disease's descriptions"
+      label="Section" 
+      variant="outlined"
+      style={{width:'47%', marginRight:'0px'}}  
+      select 
+      onChange={e=> setDisease({...disease, section:e.target.value})}
+      value={disease.section}
+      inputProps={{
+          style: {
+          padding: 12,
+          }
+        }}
+      >
+      {sections.map(option => (
+        <option key={option.value} value={option.value}>{option.value}</option>
+      ))}
+      </TextField>
+        </div>
+      <TextField 
+        label="Product's descriptions"
         variant="outlined"
         multiline
         fullWidth
@@ -195,7 +300,7 @@ export default function AddProduct({data, open, close}) {
         onChange={uploadTestmoImage}
       />
       <TextField 
-        label="Disease's testmonial"
+        label="Product's testmonial"
         variant="outlined"
         multiline
         fullWidth

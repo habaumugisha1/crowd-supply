@@ -7,6 +7,7 @@ import Instrument from '../../../src/images/instrument.png'
 import {Instagram, LinkedIn, YouTube, Twitter, Facebook } from '@material-ui/icons';
 import DashboardNavBar from './DashboardNavBar'
 import Subcategoryproducts from "./Subcategoryproducts";
+import Services from "./Services";
 import { productData } from './ProductDammyData'
 import Viebeglogo from './../../images/viebeg-logo.jpg'; 
 
@@ -15,19 +16,17 @@ function DashboardPannel() {
   const [search, setSearch] = useState("")
     return (
         <div>
-        <DashboardNavBar />
+        {/* <DashboardNavBar /> */}
         <section className="crowdhome" id="studio-header">
-            {/* <video autoPlay muted loop playsInline width="100%" height="400" z-index="-1" controls data-lazy-video="https://dfcdn.ucas.com/4.7.0/videos/homepage-leader.mp4">
-             <source src="https://dfcdn.ucas.com/4.7.0/videos/homepage-leader.mp4" type="video/mp4"/>
-           </video> */}
+            
            <img className="img" src={Instrument} alt="productimage" />
-           <div className="container h-100">
+           {/* <div className="container h-100">
           <div className="d-flex h-100 text-center align-items-center">
             <div className="w-101 overflow-hidden">
               <h1 className="display-22 font-weight-bold">
               CHOOSE YOUR FUTURE
               </h1>
-              {/* Text */}
+              
               <p className="lead text-primary-3 mb-0">
               Explore your options, search diseases and products</p>
               <div className="searchContainer text-light">
@@ -35,10 +34,6 @@ function DashboardPannel() {
                     <div>
                     <Button>Diseases</Button>
                     <Button>Products</Button>
-                    {/* <Button>Uni & Colleges</Button>
-                    <Button>Apprenteciship</Button>
-                    <Button>Advice</Button>
-                    <Button>Events</Button> */}
                     </div>
                     <div className="input-search">
                         <input name="search" type="text" placeholder="Search for Products, and deseases" onChange={(event) => {setSearch(event.target.value)}}/>
@@ -49,7 +44,7 @@ function DashboardPannel() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
             
       </section>
       <div className="products-container-root">

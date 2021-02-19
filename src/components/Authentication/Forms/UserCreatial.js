@@ -3,7 +3,7 @@ import { Button, Container, Link, TextField } from "@material-ui/core/";
 import '../../../css/signup.css'
 
 function UserCredatial({formData, setFormData, navigation}) {
-    const { username,firstName, lastName, email} = formData
+    const { username,firstName, lastName, email, password} = formData
   
     return (
         // <div>

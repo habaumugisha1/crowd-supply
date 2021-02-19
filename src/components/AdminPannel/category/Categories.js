@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import { Paper, Table, TableBody, TableCell, TableContainer,TableHead, TablePagination, TableRow, MenuItem, TextField, Tooltip, Typography } from '@material-ui/core';
+import { Paper, Table, TableBody, TableCell, TableContainer,TableHead, TablePagination, TableRow, MenuItem, TextField, Tooltip, Typography, Button } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 
 import { categoriesData } from "./CategoryData";
 import { subCategoriesData } from "./SubCategoryData";
@@ -51,6 +54,7 @@ const useStyles = makeStyles((theme)=>({
   },
   container: {
     maxHeight: 440,
+    display:'flex',
     justifyContent:'center',
     
   },
@@ -59,6 +63,14 @@ const useStyles = makeStyles((theme)=>({
   },
   button:{
     backgroundColor:'green'
+  },
+  newDesease:{
+    float:'right',
+    marginBottom:'10px'
+  },
+  top:{
+    display:'flex',
+    justifyContent:'space-between'
   }
 }));
 
@@ -101,10 +113,12 @@ const handleSubCategoryProduct =() => {
 
 const handleSubCategory = (id) => {
     subCategoriesData.filter(data => {
-       if(data.categoryId===id) {
+       const subCat = data.categoryId===id
+       if(subCat) {
            setCategory(false)
            setSubCategory([data])
-       } 
+        console.log([data])
+       }
     })
 }
 
@@ -133,36 +147,18 @@ const handleSubCategory = (id) => {
 
   return (
       <>
-      <h4 style={{marginLeft:'49px', marginTop:'-20px'}}>Products and categories</h4>
+      <h4 style={{marginLeft:'49px', marginTop:'-20px'}}>Disease </h4>
         <Paper className={classes.root}>
-    
-        <form className={classes.forms} noValidate autoComplete="off">
-        <TextField
-            select
-            value={currency}
-            onChange={handleChange}
-            variant="outlined"
-            >
-            {currencies.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                {option.label}
-                </MenuItem>
-            ))}
-            </TextField>
-        <TextField
-            className={classes.margin}
-            label="Search ..."
-            variant="outlined"
-            />
-            </form>
+        {/* <div className={classes.top}> */}
+        
+            <Button variant="contained" color="primary" className={classes.newDesease} onClick={handleOpenAddPro}> <AddIcon /> Add new disease</Button>
+          {/* </div> */}
         <TableContainer className={classes.container}>
-            <Table stickyHeader aria-label="sticky table">
+            <Table style={{width:"70%", borderRight: "1px solid lightgrey", borderLeft: "1px solid lightgrey", borderTop: "1px solid lightgrey"}} stickyHeader aria-label="sticky table">
             <TableHead>
             <TableRow>
                 <TableCell component="h2">NAME</TableCell>
-                <TableCell align="right" component="h2">CODE</TableCell>
-                <TableCell align="right" component="h2">REQUEST</TableCell>
-                <TableCell align="right" component="h2">ACTION</TableCell>
+                <TableCell align="left" component="h2">ACTION</TableCell>
             </TableRow>
             </TableHead>
             <TableBody>
@@ -175,16 +171,14 @@ const handleSubCategory = (id) => {
                                 title={
                                 <React.Fragment>
                                     <img src={row.image} alt="category images"/>
-                                    <Typography >{row.description}</Typography>
+                                    <Typography >{row.description.substring(1, 100)}</Typography>
                                 </React.Fragment>
                                 }
                             >
                             
-                            <TableCell className={classes.cat} component="th" scope="row"  key={row.id} onClick={() => handleSubCategory(row.id)}>{row.name}</TableCell> 
+                            <TableCell className={classes.cat} component="th" scope="row"  key={row.id} >{row.name}</TableCell> 
                             </HtmlTooltip>
-                            <TableCell align="right">{row.code}</TableCell>
-                            <TableCell align="right">-</TableCell>
-                            <TableCell align="right">-</TableCell>
+                            <TableCell align="left"><Button><EditIcon color="primary"/></Button><Button><DeleteIcon color="secondary"/></Button></TableCell>
                     </TableRow>
                 );
                 }

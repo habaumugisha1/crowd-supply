@@ -32,11 +32,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DashboardNavBar() {
   const classes = useStyles();
-  const [auth] = React.useState(true);
+  const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-
+  const handleChange = (event) => {
+    setAuth(event.target.checked);
+  };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -65,7 +67,7 @@ export default function DashboardNavBar() {
         title="Paella dish"/>
           
           <Typography variant="h6" className={classes.title}>
-            
+            Ami
           </Typography>
           {auth && (
             <div>

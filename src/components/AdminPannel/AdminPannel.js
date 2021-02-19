@@ -4,11 +4,18 @@ import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
+import {CardMedia} from '@material-ui/core';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+import Avatar from '@material-ui/core/Avatar';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -19,15 +26,23 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import LayersIcon from '@material-ui/icons/Layers';
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
-// import Logo from '../../images/viebe-log.jpg'
+import DynamicFeedIcon from '@material-ui/icons/DynamicFeed';
+import '../../css/active.css'
 import Logo from '../../../src/images/viebeg-logo.jpg'
 import Deseases from './Deseases';
 import Dashboard from './Dashboard';
 import Users from './Users';
 import Supply from './Supply';
 import ProductCategories from './ProductCategories';
+import Category from './Category';
 
 
+const drawerWidth = 240;
+const useIdStyle= makeStyles({
+  active:{
+    backgroundColor:'#3796F6'
+  }
+})
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -37,6 +52,25 @@ const useStyles = makeStyles((theme) => ({
       width: 100,
       flexShrink: 0,
     },
+  },
+  adminIcon:{
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+    height:'60px',
+    width:'60px',
+    backgroundColor:'lightgray',
+    color:'white',
+    borderRadius:"8px",
+    "&&:hover":{
+      backgroundColor:'#3796F6'
+    },
+    "&&.active":{
+      backgroundColor:'#3796F6'
+    }
+  },
+  active:{
+    backgroundColor:'#3796F6'
   },
   adminName:{
       float:'right'
@@ -55,6 +89,10 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: 100,
     },
     backgroundColor:'white'
+  },
+  sideIcon:{
+    width:'35px',
+    height:'35px'
   },
  sideBar:{
  width:'100px'
@@ -89,36 +127,77 @@ toolAccount:{
     backgroundColor:'lightblue',
     height:'100%',
     justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
+    marginTop:'20px'
   },
+  userProfile:{
+    height:'fit-content',
+    display:'flex',
+    flexDirection:'column',
+    width:'70px',
+    marginLeft:'50px',
+    justifyContent:'center',
+    alignItems:'center'
+  }
 }));
 
 function AdminPannel(props) {
   const { window } = props;
   const classes = useStyles();
+  const ids= useIdStyle()
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [users, setUsers] = useState(false)
   const [dashboard, setDashboard] = useState(false)
   const [deseases, setDeseases] = useState(false)
   const [supply, setSupply] = useState(false)
+  // const [open, setOpen] = useState(false);
   const [productCategory, setProductCategory] = useState(false);
+  const [auth, setAuth] = useState(true);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [category, setCategory] = useState(false)
+  const [isActive, setIsActive] = useState(false)
+  const open = Boolean(anchorEl);
 
 
+  // const handleMenu = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
+
+  // const handleOpen = () => {
+  //   setOpen(true);
+  // };
 const productCat = () => {
   setProductCategory(true)
   setDashboard(false)
     setUsers(false)
     setDeseases(false)
     setSupply(false)
+    setCategory(false)
 }
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+  };
 
+const handleSupply = () =>{
+  setProductCategory(false)
+  setDashboard(false)
+    setUsers(false)
+    setDeseases(false)
+    setSupply(true)
+    setCategory(false)
+}
   const handleDashboard = ()=>{
+    setIsActive(true)
     setDashboard(true)
     setUsers(false)
     setDeseases(false)
     setSupply(false)
      setProductCategory(false)
+     setCategory(false)
   }
   const handleUsers = ()=>{
     setUsers(true)
@@ -126,6 +205,7 @@ const productCat = () => {
     setSupply(false)
     setDashboard(false)
      setProductCategory(false)
+     setCategory(false)
   }
   const handleDeseases = ()=>{
     setDeseases(true)
@@ -133,20 +213,23 @@ const productCat = () => {
     setSupply(false)
     setDashboard(false)
      setProductCategory(false)
+     setCategory(false)
 
   }
-  const handleSuplyed = ()=>{
-    setSupply(true)
+  const handleCategory = ()=>{
+    setCategory(true)
     setUsers(false)
     setDeseases(false)
+    setSupply(false)
     setDashboard(false)  
      setProductCategory(false) 
 
   }
-  // const handleUsers = ()=>{
-  //   setUsers(true)
 
-  // }
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
 useEffect(() => {
   setDashboard(true)
 }, []);
@@ -160,38 +243,38 @@ useEffect(() => {
       <div className={classes.toolbar} >
         <img src={Logo} alt="viebeg logo" className={classes.imageLogo}/>
       </div>
-      <Divider />
+      {/* <Divider /> */}
       <List>
         {[
         {
             text:'Dashboard',
-            icon: <DashboardIcon />,
-            onclick:handleDashboard
+            icon: <DashboardIcon className={classes.sideIcon}/>,
+            onclick:handleDashboard,
         },
         {
             text:'Stock',
-            icon: <FolderIcon />,
-            onclick:productCat
+            icon: <FolderIcon className={classes.sideIcon}  />,
+            onclick:productCat,
         },
         {
             text:'supplyed',
-            icon: <ShoppingCartIcon />,
-            onclick:handleSuplyed
+            icon: <DynamicFeedIcon className={classes.sideIcon} />,
+            onclick:handleCategory,
         },
         {
             text:'Stock Managements',
-            icon: <LayersIcon />,
-            onclick:handleUsers
+            icon: <LayersIcon className={classes.sideIcon} />,
+            onclick:handleSupply,
         },
         {
             text:'Users',
-            icon: <PeopleAltIcon />,
-            onclick:handleUsers
+            icon: <PeopleAltIcon className={classes.sideIcon}/>,
+            onclick:handleUsers,
         },
         {
             text:'Deseases',
-            icon: <ShowChartIcon />,
-            onclick:handleDeseases
+            icon: <ShowChartIcon className={classes.sideIcon}/>,
+            onclick:handleDeseases,
         },
         
 
@@ -199,8 +282,7 @@ useEffect(() => {
                    const {text, icon, onclick} = item;
                  return (
           <ListItem button key={text} onClick={onclick} className={classes.icons}>
-            <ListItemIcon>{icon}</ListItemIcon>
-            {/* <ListItemText primary={text} /> */}
+            <ListItemIcon className={classes.adminIcon } id={item.active===isActive? "active" : ""}>{icon}</ListItemIcon>
           </ListItem>
                   )           
 })}
@@ -225,9 +307,53 @@ useEffect(() => {
           >
             <MenuIcon  />
           </IconButton>
-          <Typography variant="h6" noWrap className={classes.adminName}>
-            User names
-          </Typography>
+          <div></div>
+          {auth && (
+            <div style={{display:'flex', alignItems:"center"}}>
+              <Typography style={{display:'flex'}} color="primary">tobias</Typography>
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+               <Avatar alt="Tobias" src="/broken-image.jpg" className={classes.orange}>
+            </Avatar>
+                
+              </IconButton>
+              <Menu
+              className={classes.accountMenu}
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={open}
+                onClose={handleCloseMenu}
+              >
+              <div className={classes.userAccount}>
+              <div className={classes.userProfile}>
+                <Avatar  src="/broken-image.jpg" style={{width:'70px', height:'70px', marginBottom:'10px'}} >
+                </Avatar>
+              </div>
+              <MenuItem style={{display:'flex', justifyContent:'center'}} onClick={handleCloseMenu}>tobias2@gmail.com</MenuItem>
+                <Divider />
+                <MenuItem onClick={handleCloseMenu}>Profile</MenuItem>
+                <MenuItem onClick={handleCloseMenu}>My account</MenuItem>
+                <MenuItem onClick={handleCloseMenu}>My Activity</MenuItem>
+
+                <MenuItem onClick={handleCloseMenu}>Log out</MenuItem>
+              </div>
+              </Menu>
+            </div>
+          )}
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
@@ -268,6 +394,8 @@ useEffect(() => {
           {deseases? (<Deseases />):("")}
           {supply? (<Supply/>):("")}
           {productCategory ? (<ProductCategories/> ):("")}
+          {category ? (<Category /> ):("")}
+
           
        
       </main>

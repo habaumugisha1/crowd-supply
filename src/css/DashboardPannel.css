@@ -84,19 +84,22 @@ form {
 .products-container-root{
 position: relative;
  display: flex;
+ margin-left: 40px;
+ /* justify-content: center; */
  flex-direction: column;
  justify-content: center;
  align-items: center;
  padding: 0 5% 3% 5%;
- width: 100vw;
+ width: 80vw;
 }
 .products-container{
   /* position: absolute; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     flex-grow: 1;
-    width: 100vw;
+    width: 80vw;
     /* height: 1000px; */
     padding: 20px;
 }
@@ -104,9 +107,9 @@ position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     color: #fff;
-    width: 100%;
+    width: 80vw;
     grid-gap: 20px;
-    left: 10px;
+    left: 20px;
     height: fit-content;
     max-height: 100%;
     justify-content: space-evenly;
@@ -122,11 +125,18 @@ position: relative;
      /* height: 500px; */
 }
 .product-left-card{
-    width: 330px;
+    width: 300px;
     border-radius: 20px;
     margin-bottom: 20px;
     position: relative;
+    /* height: 400px; */
 }
+/* .product-right-card{
+   width: 270px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    position: relative;
+} */
 .product-left-card:hover{
     transform: scale(1.1);
     transition-property: all;
@@ -158,6 +168,7 @@ position: relative;
 .product-left-card:nth-of-type(1){
     grid-column: span 2;
     width: 100%;
+    /* height: 400px; */
 }
 .product-left-card:nth-of-type(6){
     grid-column: span 2;
@@ -173,7 +184,7 @@ position: relative;
     height: 230px;
 }
 .product-right-card{
-    width: 330px;
+    width: 300px;
     border-radius: 20px;
     position: relative;
 
@@ -342,10 +353,13 @@ strong{
     display: flex;
     width: 100%;
     padding: 10px;
+    margin-top: 20px;
+    /* background-color: cyan; */
 }
 .footer img {
     width: 94px;
     height: 30px;
+    margin-right: 20px;
 }
 .upper-footer .terms{
     margin-top: 30px;
@@ -382,6 +396,8 @@ strong{
     .product-left-card:nth-of-type(1){
     grid-column: span 1;
     width: 100%;
+    height: 500px;
+    background-color: cyan;
     }
     .product-left-card:nth-of-type(6){
         grid-column: span 1;
@@ -476,7 +492,7 @@ strong{
     position: relative;
     background-color: #752482;
     width: 100vw;
-    height: 0px;
+    /* height: 0px; */
     margin-top: 0px;
 }
 .upper-footer-slanted::after{
@@ -485,7 +501,7 @@ strong{
     left: -3px;
     width: 100%;
     height: 60%;
-    transform: rotate(3deg);
+    transform: rotate(2deg);
     background-color: #fff;
     z-index: 1;
     position: absolute;

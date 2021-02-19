@@ -16,7 +16,7 @@ export const productData = [
       "investors": "11",
       "fundinglimit": "$200,000",
       "image": Equipment,
-      "description": "General Equipment for hospitals",
+      "description": "Among the most prominent oral health problems currently facing Africa are dental caries (tooth decay), periodontal or gum diseases, oral cancers, the oral manifestation of HIV/AIDS, Noma, and trauma to the teeth and jaws.In Africa, poor oral hygiene is the leading cause of school absenteeism, with children who experience dental pain missing school and performing poorly academically.1 Similarly, untreated oral diseases can cause severe pain and infection, leading to poor productivity and absenteeism among adults in the workplace.",
       "alreadyinvested": "$20,000"
 
     },

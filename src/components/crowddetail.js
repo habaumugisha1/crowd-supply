@@ -14,7 +14,7 @@ const CrowdCard = ({product}) => (
                    {product.title}
                    </h6>
                </div>
-               <img className="card-image-top" alt="an product" style={{height:'200px', width:'auto'}} src={product.image} />
+               <img className="card-image-top" style={{height:'200px', width:'auto'}} src={product.image} />
                <div className="card-body bg-gray py-2">
                         <div className="row">
                         <span className="col"><b>Description</b></span><span className="col-auto">{product.description}</span>
