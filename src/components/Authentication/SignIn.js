@@ -73,7 +73,7 @@ function SignIn(props) {
 
                     <div style={{display:'flex', justifyContent:'center', marginTop:'20px'}}>
                         <h6>Don’t have a VIEBEG account yet?</h6>
-                        <Link style={{marginLeft:"20px"}} href="./signup">SIGN UP</Link>
+                        <Link style={{marginLeft:"20px"}} href="/signup">SIGN UP</Link>
                     </div>
                 </Container>
             </div>
