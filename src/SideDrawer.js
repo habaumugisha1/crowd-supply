@@ -25,7 +25,7 @@ import Viebeglogo from './images/viebeg-logo.jpg';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import LayersIcon from '@material-ui/icons/Layers';
 import FolderIcon from '@material-ui/icons/Folder';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
 
 const drawerWidth = 100;
@@ -174,6 +174,11 @@ const handleMenu = (event) => {
             text:'Deseases',
             icon: <ShowChartIcon className={classes.sideIcon} />,
             onclick:() => history.push('/mysupply')
+        },
+        {
+            text:'testimonials',
+            icon: <LocalLibraryIcon className={classes.sideIcon} />,
+            onclick:() => history.push('/testimonials')
         },
         
 

@@ -14,6 +14,7 @@ import { useHistory } from "react-router-dom";
 import AdminPannel from './components/AdminPannel/AdminPannel';
 import Deseases from './components/AdminPannel/Deseases';
 import Subcategories from './components/Dashboard/subcategories';
+import Testimonial from './components/Dashboard/Testimonials';
 import SignUp from "./components/Authentication/SignUp";
 import SignIn from './components/Authentication/SignIn';
 import RouteWithLayout from "./components/routeWithLayout";
@@ -55,8 +56,7 @@ let history = useHistory()
           <RouteWithLayout layout={SideDrawer} path="/lendnow" component={Lendnow} />
           <Route path="/adminpannel" component={AdminPannel} />
           <RouteWithLayout layout={SideDrawer} path="/deseases" component={Deseases} />
-          <RouteWithLayout layout={SideDrawer} path="/drawer" component={SideDrawer} />
-        
+          <RouteWithLayout layout={SideDrawer} path="/testimonials" component={Testimonial} />
           
           <RouteWithLayout layout={SideDrawer} path="/dashboard" component={DashboardPannel} />
           <RouteWithLayout layout={SideDrawer}  path="/subcategories" component={Subcategories} />

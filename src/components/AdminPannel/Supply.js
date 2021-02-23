@@ -13,7 +13,7 @@ import TableRow from '@material-ui/core/TableRow';
 const useStyles = makeStyles(theme =>({
   root: {
     position:'relative',
-    width: '50%',
+    width: '70%',
     justifyContent:'center',
     marginLeft:'50px',
     padding:'10px'
@@ -68,10 +68,11 @@ function Supply() {
         <Paper className={classes.root}>
             <h4 className="">Manage supplies/lending request</h4>
         <TableContainer className={classes.table}>
+        <Table style={{width:"100%", borderRight: "1px solid lightgrey", borderLeft: "1px solid lightgrey", borderTop: "1px solid lightgrey"}} stickyHeader aria-label="sticky table">
         <TableHead className={classes.container}>
           <TableRow className={classes.rows}> 
             <TableCell align="center" component="h2">REQUEST ID</TableCell>
-            <TableCell component="h2">USERNAME</TableCell>
+            <TableCell align="center" component="h2">USERNAME</TableCell>
             <TableCell align="center" component="h2">PRODUCT CATEGORY</TableCell>
             <TableCell align="center" component="h2">PRICE</TableCell>
           </TableRow>
@@ -86,6 +87,7 @@ function Supply() {
                 </TableRow>
             ))}
          </TableBody>
+         </Table>
         </TableContainer>
         <TablePagination
         rowsPerPageOptions={[10, 25, 100]}

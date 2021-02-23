@@ -1,3 +1,76 @@
 #active{
     background: #3796F6;
 }
+.testimonial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* text-align: center; */
+}
+.disease__testimonial{
+    display: grid;
+    justify-content: space-between;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 30px;
+}
+.sponsor__testimonial{
+    display: grid;
+    justify-content: space-between;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 30px;
+}
+ .image {
+    position: relative;
+    width: 28vw;
+    height: 40vh;
+}
+.image img{
+    position: relative;
+    width: 28vw;
+    height: 40vh;
+}
+ .image::after{
+    position: absolute;
+    content: attr(data-text);
+    color: white;
+    /* top: 0; */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 15%;
+    width: 100%;
+    transition: all .5s ease-in;
+    background-color: black;
+    opacity: .6;
+    padding: 20px;
+
+}
+.image:hover::after{
+    position: absolute;
+    content: attr(data-text2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+    padding: 20px;
+    height: 40vh;
+    cursor: pointer;
+    overflow-y: scroll;
+}
+
+.sponsor__testim{
+ width: 25vw;
+ border: 2px lightgray solid;
+ border-radius: 5px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+.sponsor__testim img{
+    width: 25vw;
+    height: 35vh;
+}

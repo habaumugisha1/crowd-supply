@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import { Paper, Table, TableBody, TableCell, TableContainer,TableHead, TablePagination, TableRow, MenuItem, TextField, Tooltip, Typography, Button } from '@material-ui/core';
+import { Paper, Table, TableBody, TableCell, TableContainer,TableHead, TablePagination, TableRow, Tooltip, Typography, Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
@@ -47,12 +47,13 @@ const useStyles = makeStyles((theme)=>({
       fontSize:'0.7rem'
   },
   root: {
-    width: '90%',
+    width: '70vw',
     justifyContent:'center',
-    marginLeft:'50px',
+    // marginLeft:'50px',
     padding:'30px'
   },
   container: {
+    width:'100%',
     maxHeight: 440,
     display:'flex',
     justifyContent:'center',
@@ -130,31 +131,18 @@ const handleSubCategory = (id) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-  const currencies = [
-  {
-    value: 'category',
-    label: 'Category',
-  },
-  {
-    value: 'subcategory',
-    label: 'Subcategory',
-  },
-  {
-    value: 'products',
-    label: 'Products',
-  }
-];
+  
 
   return (
-      <>
-      <h4 style={{marginLeft:'49px', marginTop:'-20px'}}>Disease </h4>
+      // <>
         <Paper className={classes.root}>
-        {/* <div className={classes.top}> */}
+        <div className={classes.top}>
+          <h4>Disease </h4>
         
             <Button variant="contained" color="primary" className={classes.newDesease} onClick={handleOpenAddPro}> <AddIcon /> Add new disease</Button>
-          {/* </div> */}
+          </div>
         <TableContainer className={classes.container}>
-            <Table style={{width:"70%", borderRight: "1px solid lightgrey", borderLeft: "1px solid lightgrey", borderTop: "1px solid lightgrey"}} stickyHeader aria-label="sticky table">
+            <Table style={{width:"100%", borderRight: "1px solid lightgrey", borderLeft: "1px solid lightgrey", borderTop: "1px solid lightgrey"}} stickyHeader aria-label="sticky table">
             <TableHead>
             <TableRow>
                 <TableCell component="h2">NAME</TableCell>
@@ -250,6 +238,6 @@ const handleSubCategory = (id) => {
             onChangeRowsPerPage={handleChangeRowsPerPage}
         />
         </Paper>
-    </>
+    // </>
   );
 }

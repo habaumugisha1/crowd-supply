@@ -4,25 +4,20 @@ import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
-import {CardMedia} from '@material-ui/core';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Avatar from '@material-ui/core/Avatar';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
+import  ListItemIcon from '@material-ui/core/ListItemIcon';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import FolderIcon from '@material-ui/icons/Folder';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import LayersIcon from '@material-ui/icons/Layers';
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
@@ -121,12 +116,13 @@ toolAccount:{
  justifyContent:'space-between'
 },
   content: {
-    // display:'flex',
+    display:'flex',
     flexGrow: 1,
     padding: theme.spacing(3),
     backgroundColor:'lightblue',
     height:'100%',
     justifyContent:'center',
+    flexDirection:'column',
     alignItems:'center',
     marginTop:'20px'
   },

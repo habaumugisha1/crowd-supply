@@ -73,6 +73,9 @@ const useStyles = makeStyles((theme)=>({
   top:{
     display:'flex',
     justifyContent:'space-between'
+  },
+  diseases:{
+    width:'70%'
   }
 }));
 
@@ -136,8 +139,7 @@ const handleSubCategory = (id) => {
 ];
 
   return (
-      <>
-      {/* <h4 style={{marginLeft:'49px',}}>product category </h4> */}
+      <div className={classes.diseases}>
         <Paper className={classes.root}>
         {/* <div className={classes.top}> */}
             <div style={{display:"flex", justifyContent:'space-between'}}>
@@ -145,8 +147,8 @@ const handleSubCategory = (id) => {
             <Button variant="contained" color="primary" className={classes.newDesease} onClick={handleOpenAddPro}> <AddIcon /> Add new category</Button>
             </div>
           {/* </div> */}
-        <TableContainer className={classes.container}>
-            <Table style={{width:"70%", borderRight: "1px solid lightgrey", borderLeft: "1px solid lightgrey", borderTop: "1px solid lightgrey"}} stickyHeader aria-label="sticky table">
+          <TableContainer className={classes.container}>
+            <Table style={{width:"100%", borderRight: "1px solid lightgrey", borderLeft: "1px solid lightgrey", borderTop: "1px solid lightgrey"}} stickyHeader aria-label="sticky table">
             <TableHead>
             <TableRow>
                 <TableCell component="h2">NAME</TableCell>
@@ -192,7 +194,8 @@ const handleSubCategory = (id) => {
             onChangePage={handleChangePage}
             onChangeRowsPerPage={handleChangeRowsPerPage}
         />
-        </Paper>
-    </>
+    </Paper>
+     </div>
+    
   );
 }

@@ -1,14 +1,12 @@
 import React from 'react'
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import { CardMedia, Divider, Card, CardActions,CardContent, Button} from '@material-ui/core';
-import Beds  from "../../../src/images/beds.jpeg";
-import NavBar from "./DashboardNavBar";
+import { Card, CardActions,CardContent} from '@material-ui/core';
 import {Link} from "react-router-dom";
 import { productData } from './ProductDammyData'
 import Viebeglogo from './../../images/viebeg-logo.jpg'; 
+import productTestimonial from './../../images/producttestimonial.jpg'; 
 
 
 
@@ -44,6 +42,12 @@ const useStyles = makeStyles({
   title: {
     fontSize: 14,
   },
+  product__testimonial:{
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'space-between',
+    maxWidth:'800px'
+  },
   pos: {
     marginBottom: 12,
   },
@@ -51,6 +55,20 @@ const useStyles = makeStyles({
       width:'100%',
       height:'250px',
       marginBottom:'20px'
+  },
+  prod__testm:{
+    width:'30vw',
+    height:'30vh'
+  },
+   prod__testm__text:{
+    width:'32vw',
+    height:'30vh',
+    overflowY:'scroll',
+    // marginTop:'20px'
+  },
+  testim__image:{
+     width:'30vw',
+    height:'30vh',
   }
 });
 
@@ -80,9 +98,6 @@ function ProductDetail(props) {
           <br />
         </Typography>
       </CardContent>
-      {/* <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions> */}
     </Card>
     <Card className={classes.root} variant="outlined">
       <CardContent>
@@ -127,8 +142,18 @@ function ProductDetail(props) {
                      </div>
       </CardActions>
     </Card>
-      </Container>
-        </div>
+  </Container>
+  <i><h3 style={{textAlign:'center', fontFamily:"monospace"}}>Product's testimonials</h3></i>
+  <Container maxWidth="md" className={classes.container}>
+  <div className={classes.prod__testm}> 
+    <img src={productTestimonial} alt="testimonial" className={classes.testim__image} /> 
+  </div>
+  <div className={classes.prod__testm__text}>with children who experience dental pain missing school and performing poorly academically.1 Similarly, untreated oral diseases can cause severe pain and infection, leading to poor productivity and absenteeism among adults in the workplace. One defining characteristic of happy people is they tend to hang out with other happy people. Misery loves company, and unhappy people gravitate toward others who share their negative sentiments.
+
+If you’re struggling with a bout of sadness, depression, worry, or anger, spend more time with your happiest friends or family members. Chances are, you’ll find that their positive attitude rubs off on you.</div>
+  </Container>
+        
+  </div>
     )
 }
 
